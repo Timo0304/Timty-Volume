@@ -17,7 +17,8 @@ LICENSES = {
 
 @app.post("/verify")
 def verify(req: LicenseRequest):
-    license_data = LICENSES.get(req.license_key)
+    key = req.license_key.strip()  # remove whitespace/newlines
+    license_data = LICENSES.get(key)
 
     if not license_data:
         return {"status": "invalid", "reason": "License not found"}
@@ -26,10 +27,11 @@ def verify(req: LicenseRequest):
     if expiry < datetime.utcnow():
         return {"status": "expired", "reason": "Subscription expired"}
 
+    # First-time binding
     if license_data["machine_id"] is None:
         license_data["machine_id"] = req.machine_id
 
     if license_data["machine_id"] != req.machine_id:
         return {"status": "invalid", "reason": "License used on another PC"}
 
-    return {"status": "active"}
+    return {"status": "active", "machine_id": license_data["machine_id"]}
