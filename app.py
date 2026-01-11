@@ -12,7 +12,11 @@ LICENSES = {
     "TIMTY-GOLD-E19C-ECC8": {
         "expires": "2026-12-31",
         "machine_id": None
-    }
+    },
+    "TIMTY-GOLD-7B2F-CFB8": {
+        "expires": "2026-01-16",
+        "machine_id": None
+    },
 }
 
 @app.post("/verify")
