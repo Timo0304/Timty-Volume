@@ -9,7 +9,7 @@ class LicenseRequest(BaseModel):
     machine_id: str
 
 LICENSES = {
-    "TIMTY-GOLD-001": {
+    "TIMTY-GOLD-E19C-ECC8": {
         "expires": "2026-12-31",
         "machine_id": None
     }
