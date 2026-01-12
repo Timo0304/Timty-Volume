@@ -17,6 +17,10 @@ LICENSES = {
         "expires": "2026-01-16",
         "machine_id": None
     },
+    "TIMTY-GOLD-AC4B-BEC7": {
+        "expires": "2026-01-16",
+        "machine_id": None
+    },
 }
 
 @app.post("/verify")
